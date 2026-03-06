@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+/* ── Default accent (indigo) ───────────────────────────── */
+:root {
+  --accent-400: #818cf8;
+  --accent-500: #6366f1;
+  --accent-600: #4f46e5;
+  --accent-muted: rgb(99 102 241 / 0.15);
+  --accent-border: rgb(99 102 241 / 0.4);
+  --accent-shadow: rgb(79 70 229 / 0.3);
+}
+
+/* ── Named themes ──────────────────────────────────────── */
+[data-theme="violet"]  { --accent-400:#a78bfa; --accent-500:#8b5cf6; --accent-600:#7c3aed; --accent-muted:rgb(139 92 246/.15); --accent-border:rgb(139 92 246/.4); --accent-shadow:rgb(124 58 237/.3); }
+[data-theme="sky"]     { --accent-400:#38bdf8; --accent-500:#0ea5e9; --accent-600:#0284c7; --accent-muted:rgb(14 165 233/.15); --accent-border:rgb(14 165 233/.4); --accent-shadow:rgb(2 132 199/.3); }
+[data-theme="emerald"] { --accent-400:#34d399; --accent-500:#10b981; --accent-600:#059669; --accent-muted:rgb(16 185 129/.15); --accent-border:rgb(16 185 129/.4); --accent-shadow:rgb(5 150 105/.3); }
+[data-theme="rose"]    { --accent-400:#fb7185; --accent-500:#f43f5e; --accent-600:#e11d48; --accent-muted:rgb(244 63 94/.15);  --accent-border:rgb(244 63 94/.4);  --accent-shadow:rgb(225 29 72/.3); }
+[data-theme="amber"]   { --accent-400:#fbbf24; --accent-500:#f59e0b; --accent-600:#d97706; --accent-muted:rgb(245 158 11/.15); --accent-border:rgb(245 158 11/.4); --accent-shadow:rgb(217 119 6/.3); }
+[data-theme="orange"]  { --accent-400:#fb923c; --accent-500:#f97316; --accent-600:#ea580c; --accent-muted:rgb(249 115 22/.15); --accent-border:rgb(249 115 22/.4); --accent-shadow:rgb(234 88 12/.3); }
+
+/* ── Register as Tailwind design tokens ────────────────── */
+@theme inline {
+  --color-accent-400: var(--accent-400);
+  --color-accent-500: var(--accent-500);
+  --color-accent-600: var(--accent-600);
+}
+
+/* ── Base ──────────────────────────────────────────────── */
+body {
+  background: #09090b;
+  color: #fafafa;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Hide number input arrows */
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] { -moz-appearance: textfield; }
+
+/* Hide scrollbars */
+.scrollbar-none { scrollbar-width: none; -ms-overflow-style: none; }
+.scrollbar-none::-webkit-scrollbar { display: none; }
+
+/* Safe area */
+.pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+
+/* ── Accent utility shorthands ─────────────────────────── */
+.accent-bg        { background-color: var(--accent-600); }
+.accent-bg:hover  { background-color: var(--accent-500); }
+.accent-text      { color: var(--accent-400); }
+.accent-muted-bg  { background-color: var(--accent-muted); }
+.accent-border    { border-color: var(--accent-border); }
+.accent-shadow    { box-shadow: 0 8px 24px var(--accent-shadow); }
+.accent-ring      { outline: 2px solid var(--accent-500); outline-offset: 2px; }
+.focus-accent:focus { border-color: var(--accent-500) !important; }
